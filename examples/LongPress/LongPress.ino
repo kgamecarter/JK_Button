@@ -17,13 +17,14 @@ const byte
     BUTTON_PIN(7),              // connect a button switch from this pin to ground
     LED_PIN(13);                // the standard Arduino "pin 13" LED
 
-Button myBtn(BUTTON_PIN);       // define the button
+Button myBtn([]() -> bool { return digitalRead(BUTTON_PIN); });       // define the button
 const unsigned long
     LONG_PRESS(1000),           // we define a "long press" to be 1000 milliseconds.
     BLINK_INTERVAL(100);        // in the BLINK state, switch the LED every 100 milliseconds.
 
 void setup()
 {
+    pinMode(BUTTON_PIN, INPUT_PULLUP);
     myBtn.begin();              // initialize the button object
     pinMode(LED_PIN, OUTPUT);   // set the LED pin as an output
 }

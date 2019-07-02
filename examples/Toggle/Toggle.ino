@@ -15,11 +15,13 @@ const byte
     BUTTON2_PIN(8);             // connect a button switch from this pin to ground
 
 ToggleButton                    // define the buttons
-    btn1(BUTTON1_PIN),          // this button's initial state is off
-    btn2(BUTTON2_PIN, true);    // this button's initial state is on
+    btn1([]() -> bool { return digitalRead(BUTTON1_PIN); }),          // this button's initial state is off
+    btn2([]() -> bool { return digitalRead(BUTTON2_PIN); }, true);    // this button's initial state is on
 
 void setup()
 {
+    pinMode(BUTTON1_PIN, INPUT_PULLUP);
+    pinMode(BUTTON2_PIN, INPUT_PULLUP);
     // initialize the button objects
     btn1.begin();
     btn2.begin();

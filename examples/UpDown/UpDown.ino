@@ -15,7 +15,7 @@ const byte
     DN_PIN(7),                      // connect a button switch from this pin to ground
     UP_PIN(8);                      // ditto
 
-Button btnUP(UP_PIN), btnDN(DN_PIN);    // define the buttons
+Button btnUP([]() -> bool { return digitalRead(DN_PIN); }), btnDN([]() -> bool { return digitalRead(UP_PIN); });    // define the buttons
 
 const unsigned long
     REPEAT_FIRST(500),              // ms required before repeating on long press
@@ -26,6 +26,8 @@ const int
 
 void setup()
 {
+    pinMode(UP_PIN, INPUT_PULLUP);
+    pinMode(DN_PIN, INPUT_PULLUP);
     btnUP.begin();
     btnDN.begin();
     Serial.begin(115200);
