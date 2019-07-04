@@ -5,7 +5,7 @@
 //
 // Example sketch to demonstrate toggle buttons.
 
-#include <JC_Button.h>          // https://github.com/JChristensen/JC_Button
+#include <JK_Button.h>          // https://github.com/JChristensen/JC_Button
 
 // pin assignments
 const byte

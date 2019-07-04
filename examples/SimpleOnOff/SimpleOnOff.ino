@@ -6,7 +6,7 @@
 // Example sketch to turn an LED on and off with a tactile button switch.
 // Wire the switch from the Arduino pin to ground.
 
-#include <JC_Button.h>          // https://github.com/JChristensen/JC_Button
+#include <JK_Button.h>          // https://github.com/JChristensen/JC_Button
 
 // pin assignments
 const byte
